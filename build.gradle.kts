@@ -16,10 +16,15 @@ repositories {
 }
 
 dependencies {
+    implementation("mysql:mysql-connector-java:8.0.29")
+    implementation("com.baomidou:mybatis-plus-boot-starter:3.5.1")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-parent:3.1.3")
+    implementation("org.projectlombok:lombok:1.18.28")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation(kotlin("stdlib-jdk8"))
 }
