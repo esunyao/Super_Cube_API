@@ -8,7 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+@SpringBootApplication()//exclude = DataSourceAutoConfiguration.class)
 @MapperScan("cn.esuny.super_cube.Mapper")
 public class SuperCubeApplication {
     public static final Logger logger = LoggerFactory.getLogger(SuperCubeApplication.class);
