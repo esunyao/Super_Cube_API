@@ -4,12 +4,15 @@ on:
   pull_request:
   push:
     branches:
-      - master
       - 0.0.1-alpha
 
 jobs:
   qodana:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      checks: write
     steps:
       - uses: actions/checkout@v3
         with:

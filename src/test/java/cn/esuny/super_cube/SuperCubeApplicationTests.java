@@ -1,22 +1,23 @@
 package cn.esuny.super_cube;
 
-import cn.esuny.super_cube.Mapper.UserMapper;
-import cn.esuny.super_cube.model.user_account.Account_Table;
+import cn.esuny.super_cube.model.user_account.AccountTable;
+import cn.esuny.super_cube.service.user_account.LoginMySQLService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 class SuperCubeApplicationTests {
 
     @Autowired
-    private UserMapper userMapper;
+    private LoginMySQLService userMapper;
 
     @Test
     void contextLoads() {
-        for (Account_Table userPO : userMapper.selectList(null)) {
-            System.out.println(userPO.toString());
-        }
+        List<AccountTable> list = userMapper.list();
+        System.out.println(list.toString());
     }
 
 }

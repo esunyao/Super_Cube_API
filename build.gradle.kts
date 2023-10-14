@@ -17,8 +17,7 @@ repositories {
 
 dependencies {
     implementation("mysql:mysql-connector-java:8.0.29")
-    implementation("com.baomidou:mybatis-plus-boot-starter:3.5.1")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("com.baomidou:mybatis-plus-boot-starter:3.5.3.2")
     implementation("io.jsonwebtoken:jjwt:0.9.1")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
