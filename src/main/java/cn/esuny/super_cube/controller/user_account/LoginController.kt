@@ -22,7 +22,7 @@ class LoginController {
 
     @PostMapping(value = [core_constant.API_V1_LOGIN])
     fun login(@RequestBody accountAuthentication: Account_Authentication): Result_general? {
-        return loginMySQLInfoService?.let { login_Service?.login_event(accountAuthentication, it) }
+        return login_Service?.login_event(accountAuthentication)
     }
 
     @GetMapping(value = ["/api/v1/test"])

@@ -18,10 +18,10 @@ open class core_constant {
         const val API_V1_LOGIN: String = API_PREFIX_V1 + "login"
 
         /**
-         * @author: esuny
-         * @description: 用户类数据库查询设定
+         * @author esuny
+         * @description 用户类数据库查询设定
          * */
-        const val UserInfoTableName: String = ""
-        const val UserAuthTableName: String = ""
+        const val UserInfoTableName: String = "user"
+        const val UserAuthTableName: String = "user_auths"
     }
 }
