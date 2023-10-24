@@ -5,6 +5,6 @@ import java.util.*
 
 object UUID_Utils {
     fun GetUUID(string: String): String {
-        return UUID.nameUUIDFromBytes(string.toByteArray()).toString();
+        return UUID.nameUUIDFromBytes(string.toByteArray()).toString()
     }
 }

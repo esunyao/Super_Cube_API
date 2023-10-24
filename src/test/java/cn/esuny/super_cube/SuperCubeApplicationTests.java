@@ -1,6 +1,5 @@
 package cn.esuny.super_cube;
 
-import cn.esuny.super_cube.model.user_account.UserInfoTable;
 import cn.esuny.super_cube.service.user_account.LoginMySQLAuthService;
 import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService;
 import io.jsonwebtoken.JwtBuilder;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest

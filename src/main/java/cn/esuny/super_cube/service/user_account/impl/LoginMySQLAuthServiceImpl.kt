@@ -7,5 +7,4 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
 import org.springframework.stereotype.Service
 
 @Service
-open class LoginMySQLAuthServiceImpl : ServiceImpl<UserAuthMapper, UserAuthTable?>(), LoginMySQLAuthService {
-}
+open class LoginMySQLAuthServiceImpl : ServiceImpl<UserAuthMapper, UserAuthTable?>(), LoginMySQLAuthService

@@ -3,7 +3,6 @@ package cn.esuny.super_cube.service.utils.impl
 import cn.esuny.super_cube.model.user_account.UserInfoTable
 import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService
 import cn.esuny.super_cube.service.utils.JwtUtils
-import cn.esuny.super_cube.utils.UUID_Utils
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.ExpiredJwtException
@@ -14,9 +13,10 @@ import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-open class JwtUtils : JwtUtils {
+open class JwtUtilsImpl : JwtUtils {
     @Autowired
     var loginMySQLInfoService: LoginMySQLInfoService? = null
+
     override fun createToken(UserID: String?, userName: String?, passwd: String?): String {
         val header: MutableMap<String, Any> = HashMap()
         header["typ"] = "JWT"
@@ -36,7 +36,7 @@ open class JwtUtils : JwtUtils {
         return builder.compact()
     }
 
-    override fun verify(token: String?, loginMySQLInfoService: LoginMySQLInfoService?): UserInfoTable? {
+    override fun verify(token: String?): UserInfoTable? {
         var claims: Claims? = null
         claims = try {
             //token过期后，会抛出ExpiredJwtException 异常，通过这个来判定token过期，

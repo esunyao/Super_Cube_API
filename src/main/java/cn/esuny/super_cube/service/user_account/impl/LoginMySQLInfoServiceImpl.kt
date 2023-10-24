@@ -9,5 +9,4 @@ import org.springframework.stereotype.Service
 
 //@Component
 @Service
-open class LoginMySQLInfoServiceImpl : ServiceImpl<UserInfoMapper, UserInfoTable?>(), LoginMySQLInfoService{
-}
+open class LoginMySQLInfoServiceImpl : ServiceImpl<UserInfoMapper, UserInfoTable?>(), LoginMySQLInfoService

@@ -1,12 +1,6 @@
 package cn.esuny.super_cube.service.utils
 
 import cn.esuny.super_cube.model.user_account.UserInfoTable
-import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService
-import io.jsonwebtoken.Claims
-import io.jsonwebtoken.ExpiredJwtException
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
-import java.util.*
 
 interface JwtUtils {
     companion object {
@@ -35,5 +29,5 @@ interface JwtUtils {
      * @param token  请求头中携带的token
      * @return  token验证结果  2-token过期；1-token认证通过；0-token认证失败
      */
-    fun verify(token: String?, loginMySQLInfoService: LoginMySQLInfoService?): UserInfoTable?
+    fun verify(token: String?): UserInfoTable?
 }
