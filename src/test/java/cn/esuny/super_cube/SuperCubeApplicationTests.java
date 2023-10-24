@@ -36,6 +36,18 @@ class SuperCubeApplicationTests {
     void user_id() {
         JwtBuilder jwtBuilder = Jwts.builder();
         String jwtToken = jwtBuilder
+                //header
+                .setHeaderParam("typ", "JWT")
+                .setHeaderParam("alg", "HS256")
+                //payload
+                .claim("username", "admin")
+                .claim("role", "123456")
+                .setSubject("admin-test")
+                .setExpiration(new Date(System.currentTimeMillis() + time))
+                .setId(UUID.randomUUID().toString())
+                //signature
+                .signWith(SignatureAlgorithm.HS256, signature)
                 .compact();
+        System.out.println(jwtToken);
     }
 }
