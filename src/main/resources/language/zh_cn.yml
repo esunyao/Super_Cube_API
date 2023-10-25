@@ -1,2 +1,2 @@
-"super_cube.service.LoginService.success": 800
-"super_cube.service.LoginService.failed": 801
+"super_cube.service.LoginService.successCode": 800
+"super_cube.service.LoginService.failedCode": 801

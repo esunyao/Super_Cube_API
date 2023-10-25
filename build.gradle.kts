@@ -31,6 +31,9 @@ dependencies {
     implementation("com.sun.xml.bind:jaxb-core:2.3.0")
     implementation("javax.activation:activation:1.1.1")
 
+    // FastJson
+    implementation("com.alibaba:fastjson:1.2.83")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation(kotlin("stdlib-jdk8"))
 }
