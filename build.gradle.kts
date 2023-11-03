@@ -24,6 +24,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-parent:3.1.3")
     implementation("org.projectlombok:lombok:1.18.28")
+
+    // JwtToken
+    implementation("javax.xml.bind:jaxb-api:2.3.0")
+    implementation("com.sun.xml.bind:jaxb-impl:2.3.0")
+    implementation("com.sun.xml.bind:jaxb-core:2.3.0")
+    implementation("javax.activation:activation:1.1.1")
+
+    // FastJson
+    implementation("com.alibaba:fastjson:1.2.83")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation(kotlin("stdlib-jdk8"))
 }
