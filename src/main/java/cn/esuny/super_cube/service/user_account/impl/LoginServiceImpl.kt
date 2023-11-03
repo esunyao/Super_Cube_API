@@ -32,28 +32,42 @@ open class LoginServiceImpl : LoginService {
                 return Result_general(
                     language.tr("super_cube.service.LoginService.failedCode").toInt(),
                     null,
-                    "",
+                    "{}",
                     "输入的用户名或密码不能为空"
                 )
             }
             val qw: QueryWrapper<UserInfoTable> = QueryWrapper<UserInfoTable>()
             qw.eq("user_id", GetUUID(accountAuthentication.account))
-            qw.eq("password", accountAuthentication.password)
             val res: UserInfoTable? = loginMySQLInfoService?.getOne(qw)
             if (res != null) {
-                val token: String? = jwtUtils?.createToken(res.userId, res.username, res.password)
+                if (res.password.equals(accountAuthentication.password)) {
+                    val token: String? = jwtUtils?.createToken(res.userId, res.username, res.password)
+                    return Result_general(
+                        language.tr("super_cube.service.LoginService.successCode").toInt(),
+                        null,
+                        String.format("{\"token\": \"%s\"}", token),
+                        "登录成功"
+                    )
+                }else
+                    return Result_general(
+                        language.tr("super_cube.service.LoginService.failedCode").toInt(),
+                        null,
+                        "{}",
+                        "输入密码错误"
+                    )
+            }else
                 return Result_general(
-                    language.tr("super_cube.service.LoginService.successCode").toInt(),
+                    language.tr("super_cube.service.LoginService.failedCode").toInt(),
                     null,
-                    String.format("{\"token\": \"%s\"}", token),
-                    "登录成功"
+                    "{}",
+                    "用户名错误"
                 )
-            }
         }
+
         return Result_general(
             language.tr("super_cube.service.LoginService.failedCode").toInt(),
             null,
-            "",
+            "{}",
             "输入的用户名或密码不能为空"
         )
     }
