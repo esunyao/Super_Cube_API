@@ -16,6 +16,7 @@ open class core_constant {
 
         const val API_PREFIX_V1: String = "/api/v1/"
         const val API_V1_LOGIN: String = API_PREFIX_V1 + "login"
+        const val API_V1_SPORTS: String = API_PREFIX_V1 + "sports"
 
         /**
          * @author esuny
