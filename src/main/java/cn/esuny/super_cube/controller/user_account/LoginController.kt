@@ -6,8 +6,6 @@ import cn.esuny.super_cube.model.user_account.Account_Authentication
 import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService
 import cn.esuny.super_cube.service.user_account.LoginService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.core.io.FileSystemResource
-import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -23,7 +21,7 @@ class LoginController {
 
     @PostMapping(value = [core_constant.API_V1_LOGIN])
     fun login(@RequestBody accountAuthentication: Account_Authentication): Result_general? {
-        return login_Service?.login_event(accountAuthentication)
+        return login_Service?.loginEvent(accountAuthentication)
     }
 
 

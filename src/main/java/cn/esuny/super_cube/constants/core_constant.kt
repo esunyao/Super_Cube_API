@@ -24,5 +24,6 @@ open class core_constant {
          * */
         const val UserInfoTableName: String = "user"
         const val UserAuthTableName: String = "user_auths"
+        const val FitnessTableName: String = "fitness_data"
     }
 }

@@ -34,7 +34,7 @@ open class JwtUtilsImpl : JwtUtils {
         return builder.compact()
     }
 
-    override fun verify(token: String?): Boolean? {
+    override fun verify(token: String?): Claims? {
         var claims: Claims? = null
         claims = try {
             //token过期后，会抛出ExpiredJwtException 异常，通过这个来判定token过期，
@@ -44,7 +44,7 @@ open class JwtUtilsImpl : JwtUtils {
         }
         if (claims == null)
             return null
-        return true
+        return claims
 //        val qw: QueryWrapper<UserInfoTable> = QueryWrapper<UserInfoTable>()
 //        qw.eq("user_id", claims.id)
 //        qw.eq("username", claims.subject)
