@@ -1,41 +1,26 @@
 package cn.esuny.super_cube.controller.Interceptor
 
-import cn.esuny.super_cube.SuperCubeApplication
-import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService
-import cn.esuny.super_cube.service.utils.JwtUtils
+import cn.esuny.super_cube.service.utils.impl.JwtUtilsImpl
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import org.springframework.web.servlet.HandlerInterceptor
-import org.springframework.web.servlet.ModelAndView
-
-
-
 
 
 /**
  * 登录验证过滤器
  */
-@Component
+@Service
 class LoginInterceptor : HandlerInterceptor {
-
-    @Autowired
-    var loginMySQLInfoService: LoginMySQLInfoService? = null
-
-    @Autowired
-    var jwtUtils: JwtUtils? = null
 
     override fun preHandle(
         request: HttpServletRequest,
         response: HttpServletResponse,
         handler: Any
     ): Boolean {
-        try{
-            jwtUtils?.verify(request.getHeader("token"))
-        }catch (e: Exception){
+        val jwtUtils = JwtUtilsImpl()
+        if (jwtUtils.verify(request.getHeader("token")) == null)
             return false
-        }
         return true
     }
 
