@@ -1,9 +1,7 @@
 package cn.esuny.super_cube.service.utils.impl
 
-import cn.esuny.super_cube.model.user_account.UserInfoTable
 import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService
 import cn.esuny.super_cube.service.utils.JwtUtils
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
@@ -36,7 +34,7 @@ open class JwtUtilsImpl : JwtUtils {
         return builder.compact()
     }
 
-    override fun verify(token: String?): UserInfoTable? {
+    override fun verify(token: String?): Claims? {
         var claims: Claims? = null
         claims = try {
             //token过期后，会抛出ExpiredJwtException 异常，通过这个来判定token过期，
@@ -46,11 +44,12 @@ open class JwtUtilsImpl : JwtUtils {
         }
         if (claims == null)
             return null
-        val qw: QueryWrapper<UserInfoTable> = QueryWrapper<UserInfoTable>()
-        qw.eq("user_id", claims.id)
-        qw.eq("username", claims.subject)
-        qw.eq("password", claims.get("passwd"))
-        val res: UserInfoTable? = loginMySQLInfoService?.getOne(qw)
-        return res
+        return claims
+//        val qw: QueryWrapper<UserInfoTable> = QueryWrapper<UserInfoTable>()
+//        qw.eq("user_id", claims.id)
+//        qw.eq("username", claims.subject)
+//        qw.eq("password", claims.get("passwd"))
+//        val res: UserInfoTable? = loginMySQLInfoService?.getOne(qw)
+//        return res
     }
 }

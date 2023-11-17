@@ -1,13 +1,14 @@
 package cn.esuny.super_cube.service.utils
 
-import cn.esuny.super_cube.model.user_account.UserInfoTable
+import io.jsonwebtoken.Claims
 
 interface JwtUtils {
     companion object {
+
         /**
          * 过期时间5分钟
          */
-        const val EXPIRE_TIME = (5 * 60 * 1000).toLong()
+        const val EXPIRE_TIME = (60 * 60 * 1000).toLong()
 
         /**
          * 加密密钥
@@ -29,5 +30,5 @@ interface JwtUtils {
      * @param token  请求头中携带的token
      * @return  token验证结果  2-token过期；1-token认证通过；0-token认证失败
      */
-    fun verify(token: String?): UserInfoTable?
+    fun verify(token: String?): Claims?
 }

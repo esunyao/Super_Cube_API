@@ -1,6 +1,5 @@
 package cn.esuny.super_cube.service.user_account.impl
 
-import cn.esuny.super_cube.SuperCubeApplication
 import cn.esuny.super_cube.model.Result_general
 import cn.esuny.super_cube.model.user_account.Account_Authentication
 import cn.esuny.super_cube.model.user_account.UserInfoTable
@@ -8,14 +7,11 @@ import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService
 import cn.esuny.super_cube.service.user_account.LoginService
 import cn.esuny.super_cube.service.utils.JwtUtils
 import cn.esuny.super_cube.translation.language
-import cn.esuny.super_cube.utils.UUID_Utils
 import cn.esuny.super_cube.utils.UUID_Utils.GetUUID
-import com.alibaba.fastjson.JSON
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.util.StringUtils
-import kotlin.math.log
 
 @Service
 open class LoginServiceImpl : LoginService {
@@ -25,7 +21,7 @@ open class LoginServiceImpl : LoginService {
     @Autowired
     var jwtUtils: JwtUtils? = null
 
-    override fun login_event(accountAuthentication: Account_Authentication?): Result_general {
+    override fun loginEvent(accountAuthentication: Account_Authentication?): Result_general {
 
         if (accountAuthentication != null) {
             if (StringUtils.isEmpty(accountAuthentication.account) or StringUtils.isEmpty(accountAuthentication.password)) {
