@@ -7,4 +7,4 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
 import org.springframework.stereotype.Service
 
 @Service
-class FitnessMySQLServiceImpl : ServiceImpl<FitnessMapper, FitnessTable?>(), FitnessMySQLService
+open class FitnessMySQLServiceImpl : ServiceImpl<FitnessMapper, FitnessTable?>(), FitnessMySQLService

@@ -27,7 +27,7 @@ open class FitnessServiceImpl : FitnessService {
             val claims: Claims? = jwtUtils?.verify(token)
             val qw: QueryWrapper<FitnessTable> = QueryWrapper<FitnessTable>()
             if (claims != null) {
-                qw.eq("user_id", claims.id)
+                qw.eq("user_id", claims.id.toString())
                 qw.eq("startTime", fitnessData.startTime)
                 qw.eq("triggerMaxVal", fitnessData.triggerMaxVal)
                 qw.eq("triggerMinVal", fitnessData.triggerMinVal)
@@ -45,7 +45,7 @@ open class FitnessServiceImpl : FitnessService {
                         fitnessData.fitnessNumber,
                         fitnessData.triggerMinVal,
                         fitnessData.triggerMaxVal,
-                        JSON.parseArray(JSON.toJSONString(fitnessData.dataValList))
+                        JSON.toJSONString(fitnessData.dataValList)
                     )
                 )
                 return Result_general(
