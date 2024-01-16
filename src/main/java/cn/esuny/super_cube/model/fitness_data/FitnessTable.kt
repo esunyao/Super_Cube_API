@@ -31,5 +31,5 @@ data class FitnessTable(
     var triggerMaxVal: Int? = null,
 
     @TableField(value = "FitnessVal")
-    var FitnessVal: JSON? = null
+    var FitnessVal: String? = null
 )
