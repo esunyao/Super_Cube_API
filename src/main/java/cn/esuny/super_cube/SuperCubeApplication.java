@@ -1,7 +1,5 @@
 package cn.esuny.super_cube;
 
-import cn.esuny.super_cube.translation.language;
-import com.google.protobuf.Any;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -17,7 +15,7 @@ public class SuperCubeApplication {
 
     public static void main(String[] args) {
         cn.esuny.super_cube.translation.language.INSTANCE.LoadLanguage();
-        cn.esuny.super_cube.translation.language.INSTANCE.tr("asdfasdf", "11231", "asdfasdf");
+//        cn.esuny.super_cube.translation.language.INSTANCE.tr("asdfasdf", "11231", "asdfasdf");
         SpringApplication.run(SuperCubeApplication.class, args);
     }
 

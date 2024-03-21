@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableField
 import com.baomidou.mybatisplus.annotation.TableId
 import com.baomidou.mybatisplus.annotation.TableName
 import lombok.Data
-import java.io.Serializable
 import java.time.LocalDateTime
 
 @Data
@@ -37,7 +36,13 @@ data class UserInfoTable(
     var secondName: String? = null,
 
     @TableField("phone")
-    var phone: Int? = null,
+    var phone: Long? = null,
+
+    @TableField("weigh")
+    var weigh: Int? = null,
+
+    @TableField("age")
+    var age: Int? = null,
 
     @TableField("create_time")
     var createTime: LocalDateTime? = null,

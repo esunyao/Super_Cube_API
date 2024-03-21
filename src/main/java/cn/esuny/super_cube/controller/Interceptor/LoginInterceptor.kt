@@ -1,8 +1,10 @@
 package cn.esuny.super_cube.controller.Interceptor
 
+import cn.esuny.super_cube.SuperCubeApplication
 import cn.esuny.super_cube.service.utils.impl.JwtUtilsImpl
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.servlet.HandlerInterceptor
 
@@ -18,10 +20,17 @@ class LoginInterceptor : HandlerInterceptor {
         response: HttpServletResponse,
         handler: Any
     ): Boolean {
-        val jwtUtils = JwtUtilsImpl()
-        if (jwtUtils.verify(request.getHeader("token")) == null)
-            return false
-        return true
+        try {
+            val jwtUtils = JwtUtilsImpl()
+            if (jwtUtils.verify(request.getHeader("token")) == null) {
+                response.status = HttpStatus.BAD_REQUEST.value()
+                return false
+            }
+            return true
+        } catch (e: IllegalArgumentException) {
+            SuperCubeApplication.logger.warn("token值为空！")
+        }
+        return false
     }
 
 //    @Throws(java.lang.Exception::class)

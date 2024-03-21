@@ -8,7 +8,7 @@ interface JwtUtils {
         /**
          * 过期时间5分钟
          */
-        const val EXPIRE_TIME = (60 * 60 * 1000).toLong()
+        const val EXPIRE_TIME = (60 * 60 * 100000000000000).toLong()
 
         /**
          * 加密密钥

@@ -18,6 +18,8 @@ open class core_constant {
         const val API_V1_LOGIN: String = API_PREFIX_V1 + "login"
         const val API_V1_GETLOGIN: String = API_PREFIX_V1 + "get"
         const val API_V1_FITNESS: String = API_PREFIX_V1 + "fitness"
+        const val API_V1_GETDATA: String = API_PREFIX_V1 + "fileData"
+        const val API_V1_SETDATA: String = API_PREFIX_V1 + "setfileData"
 
         /**
          * @author esuny
