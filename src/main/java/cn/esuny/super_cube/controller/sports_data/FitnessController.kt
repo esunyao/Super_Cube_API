@@ -31,9 +31,9 @@ class FitnessController {
         return fitnessService?.getHistoryData(token)
     }
 
-    @PostMapping(value = [core_constant.API_V1_FITNESS + "/resource/{id}"])
+    @GetMapping(value = [core_constant.API_V1_FITNESS + "/resource/{id}"])
     fun getResource(@PathVariable id: String): ResponseEntity<Any>? {
-        val file = Paths.get("storage/", "$id").toAbsolutePath().normalize().toFile()
+        val file = Paths.get("storage/", id).toAbsolutePath().normalize().toFile()
 
         if (file.exists()) {
             val resource: Resource = UrlResource(file.toURI())
