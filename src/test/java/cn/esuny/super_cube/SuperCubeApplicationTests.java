@@ -2,15 +2,10 @@ package cn.esuny.super_cube;
 
 import cn.esuny.super_cube.service.user_account.LoginMySQLAuthService;
 import cn.esuny.super_cube.service.user_account.LoginMySQLInfoService;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import cn.esuny.super_cube.utils.UUID_Utils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Date;
-import java.util.UUID;
 
 @SpringBootTest
 class SuperCubeApplicationTests {
@@ -32,20 +27,11 @@ class SuperCubeApplicationTests {
 
     @Test
     void user_id() {
-        JwtBuilder jwtBuilder = Jwts.builder();
-        String jwtToken = jwtBuilder
-                //header
-                .setHeaderParam("typ", "JWT")
-                .setHeaderParam("alg", "HS256")
-                //payload
-                .claim("username", "admin")
-                .claim("role", "123456")
-                .setSubject("admin-test")
-                .setExpiration(new Date(System.currentTimeMillis() + time))
-                .setId(UUID.randomUUID().toString())
-                //signature
-                .signWith(SignatureAlgorithm.HS256, signature)
-                .compact();
-        System.out.println(jwtToken);
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("test" + i);
+            System.out.println(UUID_Utils.INSTANCE.GetUUID("Test" + i).toString());
+        }
+//        System.out.println(UUID_Utils.INSTANCE.GetUUID("Test1").toString())
+
     }
 }

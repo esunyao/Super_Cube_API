@@ -1,0 +1,16 @@
+POST https://sports.erpsu.com.cn:443/api/v1/login
+Content-Type: application/json
+
+{
+  "account": "asdf",
+  "passwd": "asdf"
+}
+
+###
+POST https://47.116.176.55:443/api/v1/login
+Content-Type: application/json
+
+{
+"account": "asdf",
+"passwd": "asdf"
+}

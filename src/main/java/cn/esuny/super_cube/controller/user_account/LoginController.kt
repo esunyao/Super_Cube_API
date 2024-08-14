@@ -42,4 +42,9 @@ class LoginController {
         }
         return null
     }
+
+    @PostMapping(value = [core_constant.API_V1_REGISTER])
+    fun register(@RequestBody accountAuthentication: Account_Authentication): Result_general? {
+        return login_Service?.registerEvent(accountAuthentication)
+    }
 }

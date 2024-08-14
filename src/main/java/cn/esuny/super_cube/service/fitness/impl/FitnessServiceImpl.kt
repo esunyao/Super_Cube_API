@@ -79,7 +79,7 @@ open class FitnessServiceImpl : FitnessService {
                 resu.add(
                     JSONObject.parse(
                         String.format(
-                            "{\"fitnessNumber\": \"%d\", \"secondsTotal\": \"%d\"}",
+                            "{\"fitnessNumber\": \"%d\", \"secondsTotal\": \"%d\", \"time\": \"" + data?.startTime.toString() + "\"}",
                             data?.fitnessNumber,
                             data?.secondsTotal
                         )

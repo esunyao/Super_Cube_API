@@ -8,5 +8,6 @@ data class UserFileTable(
     var second_name: String,
     var age: Int,
     var sex: String,
-    var weigh: Int
+    var weigh: Int,
+//    var create_time: LocalDateTime?
 )

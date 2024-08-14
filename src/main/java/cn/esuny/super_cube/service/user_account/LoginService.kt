@@ -9,4 +9,5 @@ interface LoginService {
     fun userFileGetEvent(token: String?): Result_general?
 
     fun userFileSetEvent(userFileTable: UserFileTable?, token: String?): Result_general?
+    fun registerEvent(accountAuthentication: Account_Authentication): Result_general?
 }
