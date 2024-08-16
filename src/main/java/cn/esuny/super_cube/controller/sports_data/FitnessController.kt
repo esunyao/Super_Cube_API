@@ -54,4 +54,9 @@ class FitnessController {
             return ResponseEntity.notFound().build()
         }
     }
+
+    @GetMapping(value = [core_constant.API_V1_FITNESS_WX])
+    fun fitnessWx(@RequestBody id: String) {
+
+    }
 }
