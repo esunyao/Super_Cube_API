@@ -15,7 +15,8 @@ open class LoginInterceptorReg : WebMvcConfigurer {
         registration.addPathPatterns("/**") //所有路径都被拦截
         registration.excludePathPatterns( //添加不拦截路径
             core_constant.API_V1_LOGIN,
-            core_constant.API_V1_REGISTER
+            core_constant.API_V1_REGISTER,
+            core_constant.API_V1_GETLOGIN
         )
     }
 }
