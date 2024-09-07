@@ -55,6 +55,18 @@ class FitnessController {
         }
     }
 
+    @GetMapping(value = [core_constant.API_V1_FITNESS + "/wxresource/{id}"])
+    fun getwxResource(@PathVariable id: String, @RequestHeader token: String): ResponseEntity<Any>? {
+        val file = Paths.get("wxstorage/", id).toAbsolutePath().normalize().toFile()
+        if (file.exists()) {
+            val resource: Resource = UrlResource(file.toURI())
+            return ResponseEntity.ok().body(resource)
+        } else {
+            // 如果文件不存在，您可以返回一个错误响应
+            return ResponseEntity.notFound().build()
+        }
+    }
+
     @GetMapping(value = [core_constant.API_V1_FITNESS_WX])
     fun fitnessWx(@RequestBody id: String) {
 
