@@ -22,6 +22,8 @@ open class core_constant {
         const val API_V1_GETDATA: String = API_PREFIX_V1 + "fileData"
         const val API_V1_SETDATA: String = API_PREFIX_V1 + "setfileData"
 
+        const val API_V1_FITNESS_WX: String = API_V1_FITNESS + "/wx"
+
         /**
          * @author esuny
          * @description 用户类数据库查询设定

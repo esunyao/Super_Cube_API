@@ -34,13 +34,18 @@ class LoginController {
     fun getLogin(@RequestBody getLoginAuthentication: GetLoginAuthentication): Result_general? {
         if(jwtUtils != null) {
             return Result_general(
-                language.tr("super_cube.service.LoginService.failedCode").toInt(),
+                language.tr("super_cube.service.LoginService.successCode").toInt(),
                 null,
                 jwtUtils!!.verify(getLoginAuthentication.token).toString(),
                 "验证成功"
             )
         }
-        return null
+        return Result_general(
+            language.tr("super_cube.service.LoginService.failedCode").toInt(),
+            null,
+            jwtUtils!!.verify(getLoginAuthentication.token).toString(),
+            "验证失败"
+        )
     }
 
     @PostMapping(value = [core_constant.API_V1_REGISTER])
