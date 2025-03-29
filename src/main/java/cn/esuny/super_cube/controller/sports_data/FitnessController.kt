@@ -10,6 +10,7 @@ import io.jsonwebtoken.Claims
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.Resource
 import org.springframework.core.io.UrlResource
+import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.nio.file.Paths
@@ -57,12 +58,14 @@ class FitnessController {
 
     @GetMapping(value = [core_constant.API_V1_FITNESS + "/wxresource/{id}"])
     fun getwxResource(@PathVariable id: String, @RequestHeader token: String): ResponseEntity<Any>? {
+        jwtUtils?.verify(token) ?: return ResponseEntity.notFound().build()
         val file = Paths.get("wxstorage/", id).toAbsolutePath().normalize().toFile()
         if (file.exists()) {
             val resource: Resource = UrlResource(file.toURI())
-            return ResponseEntity.ok().body(resource)
+            return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.filename + "\"")
+                .body(resource)
         } else {
-            // 如果文件不存在，您可以返回一个错误响应
             return ResponseEntity.notFound().build()
         }
     }
