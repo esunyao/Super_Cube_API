@@ -1,4 +1,4 @@
-package cn.esuny.super_cube.Mapper.user_account
+package cn.esuny.super_cube.Mapper.fitness_data
 
 import cn.esuny.super_cube.model.fitness_data.FitnessTable
 import com.baomidou.mybatisplus.core.mapper.BaseMapper

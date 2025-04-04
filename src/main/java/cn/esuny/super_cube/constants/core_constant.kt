@@ -7,7 +7,7 @@ open class core_constant {
         const val PACKAGE_NAME: String = "Super_Cube"
 
 
-        const val VERSION: String = "0.0.1-alpha"
+        const val VERSION: String = "0.0.3-alpha"
 
         const val GITHUB_URL: String = "https://github.com/esunyao/Super_Cube_API"
 
