@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.esuny.super_cube.Mapper.cuber_data.CubeDataMapper">
+
+    <resultMap id="BaseResultMap" type="cn.esuny.super_cube.model.cube_data.CubeDataData">
+        <id column="ID" property="id" jdbcType="BIGINT"/>
+        <result column="bureauID" property="bureauID" jdbcType="VARCHAR"/>
+        <result column="chunk" property="chunk" jdbcType="BIGINT"/>
+        <result column="cubeID" property="cubeID"
+                typeHandler="org.apache.ibatis.type.EnumTypeHandler"
+                jdbcType="VARCHAR"/>
+        <result column="data" property="data" jdbcType="BLOB"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID
+        , bureauID, chunk, cubeID, data
+    </sql>
+
+    <!-- BaseMapper provides basic CRUD operations, add custom queries here -->
+
+    <!-- Example of custom query -->
+    <select id="selectByBureauIdAndChunk" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${core_constant.CubeBureauTableName}
+        WHERE bureauID = #{bureauId} AND chunk = #{chunk}
+    </select>
+
+    <!-- Example of custom query with enum -->
+    <select id="selectByCubeSide" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${core_constant.CubeBureauTableName}
+        WHERE cubeID = #{cubeSide}
+    </select>
+
+</mapper>

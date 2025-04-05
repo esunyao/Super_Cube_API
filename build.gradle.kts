@@ -2,11 +2,11 @@ plugins {
     java
     id("org.springframework.boot") version "3.1.3"
     id("io.spring.dependency-management") version "1.1.3"
-    kotlin("jvm") version "1.9.20-Beta2"
+    kotlin("jvm") version "2.1.0"
 }
 
 group = "cn.esuny"
-version = "0.0.2-SNAPSHOT"
+version = "0.0.3-SNAPSHOT"
 
 java {
 }
@@ -17,7 +17,8 @@ repositories {
 
 dependencies {
     implementation("mysql:mysql-connector-java:8.0.29")
-    implementation("com.baomidou:mybatis-plus-boot-starter:3.5.3.2")
+    implementation("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.11")
+    implementation("com.baomidou:dynamic-datasource-spring-boot3-starter:4.3.1")
     implementation("io.jsonwebtoken:jjwt:0.9.1")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")

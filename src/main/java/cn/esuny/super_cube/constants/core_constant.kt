@@ -1,7 +1,7 @@
 package cn.esuny.super_cube.constants
 
 open class core_constant {
-    companion object{
+    companion object {
         const val NAME_SHORT: String = "Cube"
         const val NAME: String = "Super_Cube"
         const val PACKAGE_NAME: String = "Super_Cube"
@@ -22,6 +22,11 @@ open class core_constant {
         const val API_V1_GETDATA: String = API_PREFIX_V1 + "fileData"
         const val API_V1_SETDATA: String = API_PREFIX_V1 + "setfileData"
 
+        const val API_V1_CUBE: String = API_PREFIX_V1 + "cube/"
+
+        const val API_V1_UPLOADACC: String = API_V1_CUBE + "upload-chunk"
+        const val API_V1_COMPLETEUPLOAD: String = API_V1_CUBE + "complete-upload"
+
         const val API_V1_FITNESS_WX: String = API_V1_FITNESS + "/wx"
 
         /**
@@ -31,5 +36,7 @@ open class core_constant {
         const val UserInfoTableName: String = "user"
         const val UserAuthTableName: String = "user_auths"
         const val FitnessTableName: String = "fitness_data"
+        const val CubeBureauTableName: String = "play_bureau"
+        const val CubeDataTableName: String = "play_data"
     }
 }

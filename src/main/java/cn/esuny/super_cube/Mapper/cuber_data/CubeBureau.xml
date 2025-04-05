@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.esuny.super_cube.Mapper.cuber_data.CubeBureauMapper">
+
+    <resultMap id="BaseResultMap" type="cn.esuny.super_cube.model.cube_data.CubeBureauData">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="user_id" jdbcType="VARCHAR"/>
+        <result column="bureauID" property="bureauID" jdbcType="VARCHAR"/>
+        <result column="startTime" property="startTime" jdbcType="TIMESTAMP"/>
+        <result column="totalTime" property="totalTime" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID
+        , user_id, bureauID, startTime, totalTime
+    </sql>
+
+    <!-- BaseMapper provides basic CRUD operations, so you only need to add custom queries here -->
+
+    <!-- Example of custom query -->
+    <select id="selectByUserIdAndBureauId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ${core_constant.CubeDataTableName}
+        WHERE user_id = #{userId} AND bureauID = #{bureauId}
+    </select>
+
+</mapper>
